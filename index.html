@@ -1922,7 +1922,7 @@
   }, 4000);
 
   // ===== FORM SUBMIT =====
-  async function submitForm() {
+    async function submitForm() {
     const nombre = document.getElementById('nombre').value.trim();
     const empresa = document.getElementById('empresa').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -1945,16 +1945,15 @@
       return;
     }
 
-    // ⚠️ IMPORTANTE: Reemplaza esta URL con la de tu Apps Script desplegado
-    // Sigue los pasos del archivo analisis_errores.md para obtener la URL correcta
-      const SHEETS_URL = 'https://docs.google.com/spreadsheets/d/1vW0InQ8ac-4CnGH53NkwGeO2nRLigO1HGREG8vPmfpU';
+    // ✅ URL de tu Apps Script vinculada correctamente
+    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzDQkanlYQuiNZHtwfoSRejxefG8jaMpusD5vcRelfaBgNN_G6mpBqzg5FJJLDkPH4l/exec';
 
-    // Validar que la URL fue configurada
-      if (SHEETS_URL === 'https://docs.google.com/spreadsheets/d/1vW0InQ8ac-4CnGH53NkwGeO2nRLigO1HGREG8vPmfpU' || !SHEETS_URL.startsWith('https://script.google.com/')) {
+    // ✅ Validación corregida para tu nueva URL
+    if (!SHEETS_URL.startsWith('https://script.google.com/')) {
       status.className = 'form-status error';
       status.style.display = 'block';
       status.textContent = '⚠ ERROR DE CONFIG: La URL del Apps Script no está configurada. Ver instrucciones.';
-      console.error('SHEETS_URL no configurada. Sigue las instrucciones del archivo analisis_errores.md');
+      console.error('SHEETS_URL no configurada.');
       return;
     }
 
@@ -2002,6 +2001,7 @@
       submitBtn.style.opacity = '1';
     }
   }
+
 
   // ===== WHATSAPP POPUP =====
   function toggleWaPopup() {
